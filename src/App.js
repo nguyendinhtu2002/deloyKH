@@ -10,7 +10,7 @@ import Login from "./screens/LoginScreen";
 import NotFound from "./screens/NotFound";
 import PrivateRouter from "./PrivateRouter";
 import { useDispatch, useSelector } from "react-redux";
-import { listUser } from "./Redux/Actions/UserActions";
+import { listUser } from "./Redux/Actions/userActions";
 import { listOrders } from "./Redux/Actions/OrderActions";
 import ClassEditScreen from "./screens/ClassEditScreen";
 import AddSV from "./screens/AddSv";
