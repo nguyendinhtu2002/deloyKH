@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, listUser } from "../../Redux/Actions/userActions";
+import { deleteUser, listUser } from "../../Redux/Actions/UserActions";
 import Loading from "../LoadingError/Loading";
 import Message from "../LoadingError/Error";
 import DataTable from 'react-data-table-component'

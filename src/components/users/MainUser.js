@@ -13,7 +13,11 @@ const MainUser = () => {
     <section className="content-main">
       <div className="content-header">
         <h2 className="content-title">User</h2>
-     
+        <div>
+          <Link to="/addUser" className="btn btn-primary">
+            Create new
+          </Link>
+        </div>
       </div>
       
       <div className="card mb-4 shadow-sm">

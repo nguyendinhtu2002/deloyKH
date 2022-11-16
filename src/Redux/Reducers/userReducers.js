@@ -1,4 +1,7 @@
 import {
+  USER_CREATE_FAIL,
+  USER_CREATE_REQUEST,
+  USER_CREATE_SUCCESS,
   USER_DELETE_FAIL,
   USER_DELETE_REQUEST,
   USER_DELETE_SUCCESS,
@@ -91,6 +94,22 @@ export const userEditReducer = (
     case USER_EDIT_SUCCESS:
       return { loading: false, user: action.payload };
     case USER_EDIT_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const userCreateReducer = (
+  state = {},
+  action
+) => {
+  switch (action.type) {
+    case USER_CREATE_REQUEST:
+      return { ...state, loading: true };
+    case USER_CREATE_SUCCESS:
+      return { loading: false, user: action.payload };
+    case USER_CREATE_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { PRODUCT_CREATE_RESET } from "../../Redux/Constants/ProductConstants";
-import { createUser } from "../../Redux/Actions/UserActions";
+import { addSv, addUSer, createUser, resgisUSer } from "../../Redux/Actions/UserActions";
 import Toast from "../LoadingError/Toast";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
@@ -14,33 +14,33 @@ const ToastObjects = {
   pauseOnHover: false,
   autoClose: 2000,
 };
-const AddClassMain = () => {
+const AddUser = () => {
   const [name, setName] = useState("");
-  const [code, setCode] = useState("");
-  const [note, setNote] = useState("");
-  const [mentor, setMentor] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState('');
+  const orderList = useSelector((state) => state.orderList);
+  const {  orders } = orderList;
   const dispatch = useDispatch();
 
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
-  const productCreate = useSelector((state) => state.productCreate);
-  const { loading, error, product } = productCreate;
+  const createUser = useSelector((state) => state.createUser);
+  const { loading, error, user } = createUser;
   useEffect(() => {
-    if (product) {
-      toast.success("Class Added", ToastObjects);
-      dispatch({ type: PRODUCT_CREATE_RESET });
+    if (user) {
+      toast.success("Sv Added", ToastObjects);
       setName("");
-      setCode("");
-      setNote("");
-      setMentor("");
+      setEmail("");
+      setPassword("");
+      setRole("");
     }
-  }, [product, dispatch]);
+  }, [user, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(createUser(name, code, note, mentor));
-  };
-
+    dispatch(resgisUSer(name, email, password,role))
+  }
   return (
     <>
       <Toast />
@@ -50,7 +50,7 @@ const AddClassMain = () => {
             <Link to="/class" className="btn btn-danger text-white">
               Go to class
             </Link>
-            <h2 className="content-title">Add Class</h2>
+            <h2 className="content-title">Add SV in Class </h2>
             <div>
               <button type="submit" className="btn btn-primary">
                 Publish now
@@ -66,7 +66,7 @@ const AddClassMain = () => {
                   {loading && <Loading />}
                   <div className="mb-4">
                     <label htmlFor="product_title" className="form-label">
-                      Code
+                      Name
                     </label>
                     <input
                       type="text"
@@ -74,51 +74,56 @@ const AddClassMain = () => {
                       className="form-control"
                       id="product_title"
                       required
-                      onChange={(e) => setCode(e.target.value)}
+                      onChange={(e)=>setName(e.target.value)}
                     />
                   </div>
                   <div className="mb-4">
                     <label htmlFor="product_price" className="form-label">
-                      Mentor
+                      Email
                     </label>
-                    <select class="form-select" aria-label="Default select example"  onChange={(e) => { setMentor(e.target.value) }}>
-                      <option selected>Chosse Mentor</option>
-                      {
-                        users?.map((items) => items.role === "GV" ? <option value={items._id}>{items._id}</option> : null)
-                      }
-                    </select>
-                    {/* <input
-                      type="number"
+                    <input
+                      type="text"
                       placeholder="Type here"
                       className="form-control"
-                      id="product_price"
+                      id="product_title"
                       required
-                      value={price}
-                      onChange={(e) => setPrice(e.target.value)}
-                    /> */}
+                      onChange={(e)=>setEmail(e.target.value)}
+
+                    />
+
                   </div>
                   <div className="mb-4">
                     <label htmlFor="product_price" className="form-label">
-                      Name
+                      Password
                     </label>
-                    <select class="form-select" aria-label="Default select example" onChange={(e) => { setName(e.target.value) }}>
-                      <option selected>Choose Name</option>
-                      {
-                        users?.map((items) => items._id === mentor ? <option value={items.name} >{items.name}</option> : null)
-                      }
-                    </select>
-                  </div>
-                  <div className="mb-4">
-                    <label className="form-label">Note</label>
-                    <textarea
+                    <input
+                      type="password"
                       placeholder="Type here"
                       className="form-control"
-                      rows="7"
+                      id="product_title"
                       required
-                      onChange={(e) => setNote(e.target.value)}
-                    ></textarea>
+                      onChange={(e)=>setPassword(e.target.value)}
+
+                    />
+
                   </div>
-                  
+                  <div className="mb-4">
+                    <label htmlFor="product_price" className="form-label">
+                      Role
+                    </label>
+                    <select class="form-select" aria-label="Default select example" onChange={(e) => { setRole(e.target.value) }}>
+                      <option selected>Chosse Role</option>
+                      <option value="HV">HV</option>
+                      <option value="GV">GV</option>
+                      <option value="admin">admin</option>
+
+                    </select>
+
+                  </div>
+
+
+
+
                 </div>
               </div>
             </div>
@@ -129,4 +134,4 @@ const AddClassMain = () => {
   );
 };
 
-export default AddClassMain;
+export default AddUser;

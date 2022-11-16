@@ -10,11 +10,12 @@ import Login from "./screens/LoginScreen";
 import NotFound from "./screens/NotFound";
 import PrivateRouter from "./PrivateRouter";
 import { useDispatch, useSelector } from "react-redux";
-import { listUser } from "./Redux/Actions/userActions";
+import { listUser } from "./Redux/Actions/UserActions";
 import { listOrders } from "./Redux/Actions/OrderActions";
 import ClassEditScreen from "./screens/ClassEditScreen";
 import AddSV from "./screens/AddSv";
 import ViewClassScreen from "./screens/ViewClassScreen";
+import AddUSER from "./screens/AddUser";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <PrivateRouter path="/editClass/:id" component={ClassEditScreen} />
           <PrivateRouter path="/addproduct" component={AddClass} />
           <PrivateRouter path="/addSV" component={AddSV} />
+          <PrivateRouter path="/addUser" component={AddUSER} />
           <PrivateRouter path="/viewclass/:id" component={ViewClassScreen} />
 
           <Route path="/login" component={Login} />
