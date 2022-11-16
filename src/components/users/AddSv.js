@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { PRODUCT_CREATE_RESET } from "../../Redux/Constants/ProductConstants";
-import { addSv, addUSer, createUser, resgisUSer } from "../../Redux/Actions/UserActions";
+import { addSv, addUSer, createUser, resgisUSer } from "../../Redux/Actions/userActions";
 import Toast from "../LoadingError/Toast";
 import Message from "../LoadingError/Error";
 import Loading from "../LoadingError/Loading";
