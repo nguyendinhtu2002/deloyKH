@@ -42,6 +42,7 @@ const Login = ({ history }) => {
                 className="form-control"
                 placeholder="Email"
                 type="email"
+                
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -50,7 +51,9 @@ const Login = ({ history }) => {
               <input
                 className="form-control"
                 placeholder="Password"
+                name="password"
                 type="password"
+                autocomplete="on"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />

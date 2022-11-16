@@ -14,7 +14,7 @@ import {
 } from "../Constants/OrderConstants";
 import { logout } from "./userActions";
 import axios from "axios";
-import{URL} from './../Url';
+import { URL } from './../Url';
 
 export const listOrders = () => async (dispatch, getState) => {
   try {
@@ -30,7 +30,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${URL}/api/orders`, config);
+    const { data } = await axios.get(`${URL}/api/class`, config);
 
     dispatch({ type: ORDER_LIST_SUCCESS, payload: data });
   } catch (error) {
@@ -52,18 +52,7 @@ export const listOrders = () => async (dispatch, getState) => {
 export const getOrderDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_DETAILS_REQUEST });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.get(`${URL}/api/orders/${id}`, config);
+    const { data } = await axios.get(`${URL}/api/class/${id}`);
     dispatch({ type: ORDER_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -81,7 +70,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
 };
 
 // ORDER DELIVER
-export const deliverOrder = (id,order) => async (dispatch, getState) => {
+export const deliverOrder = (id, order) => async (dispatch, getState) => {
   try {
     dispatch({ type: ORDER_DELIVERED_REQUEST });
 
@@ -98,7 +87,7 @@ export const deliverOrder = (id,order) => async (dispatch, getState) => {
 
     const { data } = await axios.put(
       `${URL}/api/orders/${id}`,
-      {order},
+      { order },
       config
     );
     dispatch({ type: ORDER_DELIVERED_SUCCESS, payload: data });
@@ -133,7 +122,7 @@ export const deleteOrder = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `${URL}/api/orders/${id}`,
+      `${URL}/api/class/${id}`,
       config
     );
     dispatch({ type: ORDER_DELETE_SUCCESS, payload: data });

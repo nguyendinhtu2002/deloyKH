@@ -1,18 +1,18 @@
 import React from "react";
+import Sidebar from "../components/sidebar";
 import Header from "../components/Header";
-import MainUser from "../components/users/MainUser";
-import Sidebar from "./../components/sidebar";
+import AddSv from "../components/AddSV/AddSv";
 
-const HomeScreen = () => {
+const AddSV = () => {
   return (
     <>
       <Sidebar />
       <main className="main-wrap">
         <Header />
-        <MainUser />
+        <AddSv />
       </main>
     </>
   );
 };
 
-export default HomeScreen;
+export default AddSV;

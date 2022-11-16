@@ -8,8 +8,8 @@ const Sidebar = () => {
         <div className="aside-top">
           <Link to="/" className="brand-wrap">
             <img
-              src="/images/logo.png"
-              style={{ height: "46" }}
+              src="/images/logo-dep.png"
+              style={{ height: "100" }}
               className="logo"
               alt="Ecommerce dashboard template"
             />
@@ -23,97 +23,53 @@ const Sidebar = () => {
 
         <nav>
           <ul className="menu-aside">
+             
+            <li className="menu-item">
+              {/* <NavLink
+                activeClassName="active"
+                className="menu-link"
+                to="/"
+                exact={true}
+
+              >
+                <i className="icon fas fa-shopping-bag"></i>
+                <span className="text">List User</span>
+              </NavLink> */}
+            </li>
+            
+            
+          
             <li className="menu-item">
               <NavLink
                 activeClassName="active"
                 className="menu-link"
                 to="/"
                 exact={true}
-              >
-                <i className="icon fas fa-home"></i>
-                <span className="text">Dashboard</span>
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/products"
-              >
-                <i className="icon fas fa-shopping-bag"></i>
-                <span className="text">Products</span>
-              </NavLink>
-            </li>
-            <li className="menu-item disabled">
-              <NavLink
-                activeClassName="active"
-                className="menu-link disabled"
-                to="/addproduct"
-              >
-                <i className="icon fas fa-cart-plus"></i>
-                <span className="text">Add product</span>
-              </NavLink>
-            </li>
-            <li className="menu-item d-none">
-              <NavLink
-                activeClassName="active"
-                className="menu-link "
-                to="/category"
-              >
-                <i className="icon fas fa-list"></i>
-                <span className="text">Categories</span>
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/orders"
-              >
-                <i className="icon fas fa-bags-shopping"></i>
-                <span className="text">Orders</span>
-              </NavLink>
-            </li>
-            <li className="menu-item">
-              <NavLink
-                activeClassName="active"
-                className="menu-link"
-                to="/users"
+
               >
                 <i className="icon fas fa-user"></i>
                 <span className="text">Users</span>
               </NavLink>
+
             </li>
             <li className="menu-item">
               <NavLink
                 activeClassName="active"
-                className="menu-link "
-                to="/message"
+                className="menu-link"
+                to="/class"
               >
-                {/* <i class="fa-solid fa-message"></i> */}
-                <i className="icon far fa-envelope"></i>
-                <span className="text">Message</span>
+                <i className="icon fas fa-bags-shopping"></i>
+                <span className="text">List Class</span>
               </NavLink>
             </li>
-
-            <li className="menu-item ">
+            <li className="menu-item">
               <NavLink
                 activeClassName="active"
-                className="menu-link  "
-                to="/updates"
+                className="menu-link"
+                to="/addSV"
               >
-                <i className="icon fas fa-usd-circle"></i>
-                <span className="text">Money</span>
-              </NavLink>
-            </li>
-            <li className="menu-item ">
-              <NavLink
-                activeClassName="active"
-                className="menu-link "
-                to="/history"
-              >
-                <i className="icon fas fa-usd-circle"></i>
-                <span className="text">History</span>
+                <i className="icon fas fa-bags-shopping"></i>
+                <span className="text">ADD SV </span>
               </NavLink>
             </li>
           </ul>

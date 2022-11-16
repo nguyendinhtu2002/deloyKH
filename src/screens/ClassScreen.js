@@ -1,18 +1,18 @@
 import React from "react";
+import Sidebar from "../components/sidebar";
 import Header from "../components/Header";
-import MainUser from "../components/users/MainUser";
-import Sidebar from "./../components/sidebar";
+import ClassMain from "../components/class/ClassMain";
 
-const HomeScreen = () => {
+const OrderScreen = () => {
   return (
     <>
       <Sidebar />
       <main className="main-wrap">
         <Header />
-        <MainUser />
+        <ClassMain />
       </main>
     </>
   );
 };
 
-export default HomeScreen;
+export default OrderScreen;

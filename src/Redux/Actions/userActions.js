@@ -19,7 +19,7 @@ import {
 } from "../Constants/UserContants";
 import axios from "axios";
 import { toast } from "react-toastify";
-import {URL} from './../Url'
+import { URL } from './../Url'
 
 // LOGIN
 export const login = (email, password) => async (dispatch) => {
@@ -39,21 +39,22 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      `${URL}/api/users/loginAdm`,
+      `${URL}/api/auth/login`,
       { email, password },
       config
     );
 
-    if (!data.isAdmin === true) {
+    if (data.role != "admin") {
       toast.error("You are not Admin", ToastObjects);
       dispatch({
         type: USER_LOGIN_FAIL,
       });
     } else {
+      localStorage.setItem("userInfo", JSON.stringify(data));
       dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     }
 
-    localStorage.setItem("userInfo", JSON.stringify(data));
+   
   } catch (error) {
     const message =
       error.response && error.response.data.message
@@ -87,11 +88,11 @@ export const listUser = () => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.accessToken}`,
       },
     };
 
-    const { data } = await axios.get(`${URL}/api/users`, config);
+    const { data } = await axios.get(`${URL}/api/auth/listuser`, config);
 
     dispatch({ type: USER_LIST_SUCCESS, payload: data });
   } catch (error) {
