@@ -23,7 +23,7 @@ const Sidebar = () => {
 
         <nav>
           <ul className="menu-aside">
-             
+
             <li className="menu-item">
               {/* <NavLink
                 activeClassName="active"
@@ -36,9 +36,9 @@ const Sidebar = () => {
                 <span className="text">List User</span>
               </NavLink> */}
             </li>
-            
-            
-          
+
+
+
             <li className="menu-item">
               <NavLink
                 activeClassName="active"
@@ -58,7 +58,7 @@ const Sidebar = () => {
                 className="menu-link"
                 to="/class"
               >
-                <i className="icon fas fa-bags-shopping"></i>
+                <i class="icon far fa-university"></i>
                 <span className="text">List Class</span>
               </NavLink>
             </li>
@@ -68,8 +68,8 @@ const Sidebar = () => {
                 className="menu-link"
                 to="/addSV"
               >
-                <i className="icon fas fa-bags-shopping"></i>
-                <span className="text">ADD SV </span>
+                <i class="icon far fa-users-medical"></i>
+                <span className="text"> ADD SV </span>
               </NavLink>
             </li>
           </ul>
